@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Barryvdh\DomPDF\PDF;
+use Illuminate\Http\Request;
+use App\Models\User;
+
+class InvitationController extends Controller
+{
+    protected $pdf;
+
+    public function __construct(PDF $pdf)
+    {
+        $this->pdf = $pdf;
+    }
+
+    public function index()
+    {
+        $filePath = public_path("invitation.pdf");
+        $outputFilePath = public_path("invitation_output.pdf");
+        $this->fillPDFFILE($filePath, $outputFilePath);
+        return response()->file($outputFilePath);
+    }
+
+    public function fillPDFFILE($file, $outputFilePath)
+    {
+        $pdf = $this->pdf->loadFile($file);
+
+        $pdf->getCanvas()->text(50000, 50000, 'Your Text Here');
+
+        $pdf->save($outputFilePath);
+    }
+    public function download(Request $request)
+    {
+        // Handle the download request for user data
+        $userId = $request->input('user_id');
+        $user = User::find($userId);
+
+        if (!$user) {
+            abort(404); // or handle the case when the user is not found
+        }
+
+        $pdf = $this->pdf->loadView('user.download', compact('user'));
+
+        // Define the filename for the downloaded PDF
+        $filename = 'user_data_' . $user->id . '.pdf';
+
+        return $pdf->download($filename);
+    }
+}
+

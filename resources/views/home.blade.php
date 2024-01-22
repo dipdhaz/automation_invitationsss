@@ -110,7 +110,7 @@
         </div>
 
         <!-- Display user information if available -->
-        @isset($user)
+        {{-- @isset($user)
             <div class="user-profile">
                 <h2>User Profile</h2>
                 <div class="profile-info">
@@ -118,19 +118,11 @@
                     <p><strong>Nomor Paspor:</strong> {{ $user->nomor_paspor }}</p>
                     <!-- Add other user details as needed -->
                 </div>
-                <form action="{{ route('user.download') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{ $user->id }}">
-                    <button type="submit" class="download-button">Download User Data</button>
-                </form>
-
-                <!-- Button for downloading the existing PDF -->
-                <a href="http://localhost:8000/pdf_templates/invitation.pdf" download="invitation.pdf" class="download-button">Download Invitation PDF</a>
-
-    </div>
 
             </div>
-        @endisset
+
+        </div>
+    @endisset --}}
     </div>
 </body>
 
