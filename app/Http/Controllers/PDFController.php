@@ -224,13 +224,13 @@ class PDFController extends Controller
                 $fpdi->SetFont("Times", "B", 10);
                 $left2 = 45;
                 $top2 = 15;
-                $text2 = "1773006";
+                $text2 = $user->no_dptln;
                 $fpdi->Text($left2, $top2, $text2);
 
                 // Add more text
                 $left2 = 45;
                 $top2 = 162.2;
-                $text2 = "1773006";
+                $text2 = $user->no_dptln;
                 $fpdi->Text($left2, $top2, $text2);
             } else {
                 //JIKA PEREMPUAN
@@ -402,18 +402,18 @@ class PDFController extends Controller
                 $top8 = 28.5;
                 $text8 = $user->nomor_paspor;
                 $fpdi->Text($left8, $top8, $text8);
-                
+
                 // Add more text
                 $fpdi->SetFont("Times", "B", 10);
                 $left2 = 45;
                 $top2 = 15;
-                $text2 = "1773006";
+                $text2 = $user->no_dptln;
                 $fpdi->Text($left2, $top2, $text2);
 
                 // Add more text
                 $left2 = 45;
                 $top2 = 162.2;
-                $text2 = "1773006";
+                $text2 = $user->no_dptln;
                 $fpdi->Text($left2, $top2, $text2);
             }
 
