@@ -43,7 +43,7 @@ class PDFController extends Controller
             //Kordinat Laki-Laki
             if ($user->jenis_kelamin == 'L') {
 
-                  // Add user information to the PDF
+                // Add user information to the PDF
                 // Add more text
                 $left2 = 113;
                 $top2 = 49;
@@ -103,11 +103,6 @@ class PDFController extends Controller
                 $text6 = $user->tps;
                 $fpdi->Text($left6, $top6, $text6);
 
-                $left5 = 116;
-                $top5 = 39;
-                $text5 = "14";
-                $fpdi->Text($left5, $top5, $text5);
-
 
                 $left7 = 140;
                 $top7 = 39;
@@ -120,70 +115,64 @@ class PDFController extends Controller
                 $text4 = "5-11";
                 $fpdi->Text($left4, $top4, $text4);
 
-                 // Add more text
-                 $left2 = 113;
-                 $top2 = 191.5;
-                 $text2 = "08:00";
-                 $fpdi->Text($left2, $top2, $text2);
+                // Add more text
+                $left2 = 113;
+                $top2 = 191.5;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
 
 
-                 $left3 = 167;
-                 $top3 = 196;
-                 $text3 = "MYT";
-                 $fpdi->Text($left3, $top3, $text3);
+                $left3 = 167;
+                $top3 = 196;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
 
 
-                 $left3 = 138;
-                 $top3 = 196;
-                 $text3 = "18:00";
-                 $fpdi->Text($left3, $top3, $text3);
+                $left3 = 138;
+                $top3 = 196;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
 
-                 // Add more text
-                 $left2 = 113;
-                 $top2 = 196;
-                 $text2 = "08:00";
-                 $fpdi->Text($left2, $top2, $text2);
-
-
-                 $left3 = 138;
-                 $top3 = 191.5;
-                 $text3 = "18:00";
-                 $fpdi->Text($left3, $top3, $text3);
-
-                 $left3 = 167;
-                 $top3 = 191.5;
-                 $text3 = "MYT";
-                 $fpdi->Text($left3, $top3, $text3);
+                // Add more text
+                $left2 = 113;
+                $top2 = 196;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
 
 
-                 $left4 = 98;
-                 $top4 = 186;
-                 $text4 = "5-11";
-                 $fpdi->Text($left4, $top4, $text4);
+                $left3 = 138;
+                $top3 = 191.5;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
 
-                 $left5 = 116;
-                 $top5 = 186;
-                 $text5 = "14";
-                 $fpdi->Text($left5, $top5, $text5);
+                $left3 = 167;
+                $top3 = 191.5;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
 
 
+                $left4 = 98;
+                $top4 = 186;
+                $text4 = "5-11";
+                $fpdi->Text($left4, $top4, $text4);
 
-                 $left7 = 140;
-                 $top7 = 186;
-                 $text7 = "2024";
-                 $fpdi->Text($left7, $top7, $text7);
+
+                $left7 = 140;
+                $top7 = 186;
+                $text7 = "2024";
+                $fpdi->Text($left7, $top7, $text7);
 
 
 
-                 $left6 = 100;
-                 $top6 = 212;
-                 $text6 = $user->alamat;
-                 $fpdi->Text($left6, $top6, $text6);
+                $left6 = 100;
+                $top6 = 212;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
 
-                 $left6 = 100;
-                 $top6 = 206;
-                 $text6 = $user->tps;
-                 $fpdi->Text($left6, $top6, $text6);
+                $left6 = 100;
+                $top6 = 206;
+                $text6 = $user->tps;
+                $fpdi->Text($left6, $top6, $text6);
 
                 $fpdi->SetFont("Times", "B", 12);
                 $left8 = 77.5;
@@ -203,9 +192,9 @@ class PDFController extends Controller
                 $fpdi->Text($left, $top, $text);
 
                 $left8 = 52;
-                 $top8 = 176;
-                 $text8 = $user->nama_lengkap;
-                 $fpdi->Text($left8, $top8, $text8);
+                $top8 = 176;
+                $text8 = $user->nama_lengkap;
+                $fpdi->Text($left8, $top8, $text8);
 
 
                 $left6 = 125;
@@ -231,9 +220,18 @@ class PDFController extends Controller
                 $text8 = $user->nomor_paspor;
                 $fpdi->Text($left8, $top8, $text8);
 
+                // Add more text
+                $fpdi->SetFont("Times", "B", 10);
+                $left2 = 45;
+                $top2 = 15;
+                $text2 = "1773006";
+                $fpdi->Text($left2, $top2, $text2);
 
-
-
+                // Add more text
+                $left2 = 45;
+                $top2 = 162.2;
+                $text2 = "1773006";
+                $fpdi->Text($left2, $top2, $text2);
             } else {
                 //JIKA PEREMPUAN
 
@@ -288,11 +286,6 @@ class PDFController extends Controller
                 $text6 = $user->tps;
                 $fpdi->Text($left6, $top6, $text6);
 
-                $left5 = 116;
-                $top5 = 39;
-                $text5 = "14";
-                $fpdi->Text($left5, $top5, $text5);
-
                 $left7 = 140;
                 $top7 = 39;
                 $text7 = "2024";
@@ -304,69 +297,64 @@ class PDFController extends Controller
                 $text4 = "5-11";
                 $fpdi->Text($left4, $top4, $text4);
 
-                 // Add more text
-                 $left2 = 113;
-                 $top2 = 191.5;
-                 $text2 = "08:00";
-                 $fpdi->Text($left2, $top2, $text2);
+                // Add more text
+                $left2 = 113;
+                $top2 = 191.5;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
 
 
-                 $left3 = 167;
-                 $top3 = 196;
-                 $text3 = "MYT";
-                 $fpdi->Text($left3, $top3, $text3);
+                $left3 = 167;
+                $top3 = 196;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
 
 
-                 $left3 = 138;
-                 $top3 = 196;
-                 $text3 = "18:00";
-                 $fpdi->Text($left3, $top3, $text3);
+                $left3 = 138;
+                $top3 = 196;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
 
-                 // Add more text
-                 $left2 = 113;
-                 $top2 = 196;
-                 $text2 = "08:00";
-                 $fpdi->Text($left2, $top2, $text2);
-
-
-                 $left3 = 138;
-                 $top3 = 191.5;
-                 $text3 = "18:00";
-                 $fpdi->Text($left3, $top3, $text3);
-
-                 $left3 = 167;
-                 $top3 = 191.5;
-                 $text3 = "MYT";
-                 $fpdi->Text($left3, $top3, $text3);
+                // Add more text
+                $left2 = 113;
+                $top2 = 196;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
 
 
-                 $left4 = 98;
-                 $top4 = 186;
-                 $text4 = "5-11";
-                 $fpdi->Text($left4, $top4, $text4);
+                $left3 = 138;
+                $top3 = 191.5;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
 
-                 $left5 = 116;
-                 $top5 = 186;
-                 $text5 = "14";
-                 $fpdi->Text($left5, $top5, $text5);
+                $left3 = 167;
+                $top3 = 191.5;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
 
 
-                 $left7 = 140;
-                 $top7 = 186;
-                 $text7 = "2024";
-                 $fpdi->Text($left7, $top7, $text7);
+                $left4 = 98;
+                $top4 = 186;
+                $text4 = "5-11";
+                $fpdi->Text($left4, $top4, $text4);
+
+
+                $left7 = 140;
+                $top7 = 186;
+                $text7 = "2024";
+                $fpdi->Text($left7, $top7, $text7);
 
 
 
-                 $left6 = 100;
-                 $top6 = 212;
-                 $text6 = $user->alamat;
-                 $fpdi->Text($left6, $top6, $text6);
+                $left6 = 100;
+                $top6 = 212;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
 
-                 $left6 = 100;
-                 $top6 = 206;
-                 $text6 = $user->tps;
-                 $fpdi->Text($left6, $top6, $text6);
+                $left6 = 100;
+                $top6 = 206;
+                $text6 = $user->tps;
+                $fpdi->Text($left6, $top6, $text6);
 
 
                 $fpdi->SetFont("Times", "B", 12);
@@ -387,9 +375,9 @@ class PDFController extends Controller
                 $fpdi->Text($left, $top, $text);
 
                 $left8 = 52;
-                 $top8 = 176;
-                 $text8 = $user->nama_lengkap;
-                 $fpdi->Text($left8, $top8, $text8);
+                $top8 = 176;
+                $text8 = $user->nama_lengkap;
+                $fpdi->Text($left8, $top8, $text8);
 
 
                 $left6 = 125;
@@ -414,6 +402,19 @@ class PDFController extends Controller
                 $top8 = 28.5;
                 $text8 = $user->nomor_paspor;
                 $fpdi->Text($left8, $top8, $text8);
+                
+                // Add more text
+                $fpdi->SetFont("Times", "B", 10);
+                $left2 = 45;
+                $top2 = 15;
+                $text2 = "1773006";
+                $fpdi->Text($left2, $top2, $text2);
+
+                // Add more text
+                $left2 = 45;
+                $top2 = 162.2;
+                $text2 = "1773006";
+                $fpdi->Text($left2, $top2, $text2);
             }
 
 
