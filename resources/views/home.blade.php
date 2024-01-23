@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
+
     <style>
         body {
             background-image: url('{{ asset('images/bg.png') }}');
@@ -102,28 +105,35 @@
 
         <div class="search-bar-container">
             <form action="{{ route('user.search') }}" method="GET" class="search-form">
-                <input type="text" class="search-bar" placeholder="Enter NIK or Passport Number" name="query" required>
+                <input type="text" class="search-bar" placeholder="Enter NIK or Passport Number" name="query"
+                    required>
                 <button type="submit" class="search-button">
                     <img src="{{ asset('images/cari.jpg') }}" alt="Search">
                 </button>
             </form>
         </div>
-
-        <!-- Display user information if available -->
-        {{-- @isset($user)
-            <div class="user-profile">
-                <h2>User Profile</h2>
-                <div class="profile-info">
-                    <p><strong>NIK:</strong> {{ $user->nik }}</p>
-                    <p><strong>Nomor Paspor:</strong> {{ $user->nomor_paspor }}</p>
-                    <!-- Add other user details as needed -->
-                </div>
-
-            </div>
-
-        </div>
-    @endisset --}}
     </div>
+   <!-- Your other HTML content -->
+
+<!-- Include SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- Check for the flashed session variable and display SweetAlert -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+            });
+        @endif
+    });
+</script>
+
+
+
+
 </body>
 
 </html>

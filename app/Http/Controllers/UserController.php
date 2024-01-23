@@ -1,6 +1,7 @@
 <?php
-// app/Http/Controllers/UserController.php
+
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -26,8 +27,8 @@ class UserController extends Controller
             $pdfController = new PDFController();
             return $pdfController->fillPDFFile(public_path("invitation.pdf"), public_path("invitation.pdf"), $user);
         } else {
-            return redirect()->back()->with('error', 'User not found');
+            // User not found, redirect to the previous page with a SweetAlert notification
+            return redirect()->back()->with('error', 'User not found for the given NIK or Passport Number');
         }
     }
 }
-
