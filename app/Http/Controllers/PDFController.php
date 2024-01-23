@@ -12,9 +12,9 @@ class PDFController extends Controller
 {
     public function index(Request $request)
     {
-        $timestamp = now()->timestamp;
-        $filePath = public_path("invitation.pdf");
-        $outputFilePath = public_path("_{$timestamp}.pdf");
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        $filePath = public_path("invitation");
+        $outputFilePath = public_path("_{$timestamp}");
         $user = User::first();
 
         $this->fillPDFFile($filePath, $outputFilePath, $user);
@@ -38,46 +38,396 @@ class PDFController extends Controller
 
             $fpdi->SetFont("Times", "", 10);
             $fpdi->SetTextColor(0, 0, 0);
+            //Kondisi
 
-            // Add user information to the PDF
-            $left = 140;
-            $top = 126;
-            $text = $user->nama_lengkap; // Use the specific attribute of the user model
-            $fpdi->Text($left, $top, $text);
-            $fpdi->AddPage($size['orientation'], array($size['width'], $size['height']));
+            //Kordinat Laki-Laki
+            if ($user->jenis_kelamin == 'L') {
 
-            $uniqueOutputPath = $outputFilePath . '_' . $uniqueIdentifier . '_page_' . $i . '.pdf';
+                  // Add user information to the PDF
+                // Add more text
+                $left2 = 113;
+                $top2 = 49;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
+
+
+                $left3 = 167;
+                $top3 = 49;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
+
+
+                $left3 = 138;
+                $top3 = 49;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
+
+                // Add more text
+                $left2 = 113;
+                $top2 = 44;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
+
+
+                $left3 = 138;
+                $top3 = 44;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
+
+                $left3 = 167;
+                $top3 = 44;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
+
+                $left6 = 100;
+                $top6 = 65;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left6 = 100;
+                $top6 = 59;
+                $text6 = $user->tps;
+                $fpdi->Text($left6, $top6, $text6);
+
+
+                // Add user information to the PDF
+
+
+                $left6 = 100;
+                $top6 = 65;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left6 = 100;
+                $top6 = 59;
+                $text6 = $user->tps;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left5 = 116;
+                $top5 = 39;
+                $text5 = "14";
+                $fpdi->Text($left5, $top5, $text5);
+
+
+                $left7 = 140;
+                $top7 = 39;
+                $text7 = "2024";
+                $fpdi->Text($left7, $top7, $text7);
+
+
+                $left4 = 98;
+                $top4 = 39;
+                $text4 = "5-11";
+                $fpdi->Text($left4, $top4, $text4);
+
+                 // Add more text
+                 $left2 = 113;
+                 $top2 = 191.5;
+                 $text2 = "08:00";
+                 $fpdi->Text($left2, $top2, $text2);
+
+
+                 $left3 = 167;
+                 $top3 = 196;
+                 $text3 = "MYT";
+                 $fpdi->Text($left3, $top3, $text3);
+
+
+                 $left3 = 138;
+                 $top3 = 196;
+                 $text3 = "18:00";
+                 $fpdi->Text($left3, $top3, $text3);
+
+                 // Add more text
+                 $left2 = 113;
+                 $top2 = 196;
+                 $text2 = "08:00";
+                 $fpdi->Text($left2, $top2, $text2);
+
+
+                 $left3 = 138;
+                 $top3 = 191.5;
+                 $text3 = "18:00";
+                 $fpdi->Text($left3, $top3, $text3);
+
+                 $left3 = 167;
+                 $top3 = 191.5;
+                 $text3 = "MYT";
+                 $fpdi->Text($left3, $top3, $text3);
+
+
+                 $left4 = 98;
+                 $top4 = 186;
+                 $text4 = "5-11";
+                 $fpdi->Text($left4, $top4, $text4);
+
+                 $left5 = 116;
+                 $top5 = 186;
+                 $text5 = "14";
+                 $fpdi->Text($left5, $top5, $text5);
+
+
+
+                 $left7 = 140;
+                 $top7 = 186;
+                 $text7 = "2024";
+                 $fpdi->Text($left7, $top7, $text7);
+
+
+
+                 $left6 = 100;
+                 $top6 = 212;
+                 $text6 = $user->alamat;
+                 $fpdi->Text($left6, $top6, $text6);
+
+                 $left6 = 100;
+                 $top6 = 206;
+                 $text6 = $user->tps;
+                 $fpdi->Text($left6, $top6, $text6);
+
+                $fpdi->SetFont("Times", "B", 12);
+                $left8 = 77.5;
+                $top8 = 29.5;
+                $text8 = "/";
+                $fpdi->Text($left8, $top8, $text8);
+
+                $left8 = 77.5;
+                $top8 = 177;
+                $text8 = "/";
+                $fpdi->Text($left8, $top8, $text8);
+
+                $fpdi->SetFont("Times", "", 7);
+                $left = 52;
+                $top = 28.5;
+                $text = $user->nama_lengkap; // Use the specific attribute of the user model
+                $fpdi->Text($left, $top, $text);
+
+                $left8 = 52;
+                 $top8 = 176;
+                 $text8 = $user->nama_lengkap;
+                 $fpdi->Text($left8, $top8, $text8);
+
+
+                $left6 = 125;
+                $top6 = 39;
+                $text6 = "FEBRUARI ";
+                $fpdi->Text($left6, $top6, $text6);
+
+
+
+                $left6 = 125;
+                $top6 = 186;
+                $text6 = "FEBRUARI ";
+                $fpdi->Text($left6, $top6, $text6);
+
+
+                $left8 = 137.5;
+                $top8 = 176;
+                $text8 = $user->nomor_paspor;
+                $fpdi->Text($left8, $top8, $text8);
+
+                $left8 = 137.5;
+                $top8 = 28.5;
+                $text8 = $user->nomor_paspor;
+                $fpdi->Text($left8, $top8, $text8);
+
+
+
+
+            } else {
+                //JIKA PEREMPUAN
+
+                // Add user information to the PDF
+                // Add more text
+                $left2 = 113;
+                $top2 = 49;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
+
+
+                $left3 = 167;
+                $top3 = 49;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
+
+
+                $left3 = 138;
+                $top3 = 49;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
+
+                // Add more text
+                $left2 = 113;
+                $top2 = 44;
+                $text2 = "08:00";
+                $fpdi->Text($left2, $top2, $text2);
+
+
+                $left3 = 138;
+                $top3 = 44;
+                $text3 = "18:00";
+                $fpdi->Text($left3, $top3, $text3);
+
+                $left3 = 167;
+                $top3 = 44;
+                $text3 = "MYT";
+                $fpdi->Text($left3, $top3, $text3);
+
+                $left6 = 100;
+                $top6 = 65;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left6 = 100;
+                $top6 = 65;
+                $text6 = $user->alamat;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left6 = 100;
+                $top6 = 59;
+                $text6 = $user->tps;
+                $fpdi->Text($left6, $top6, $text6);
+
+                $left5 = 116;
+                $top5 = 39;
+                $text5 = "14";
+                $fpdi->Text($left5, $top5, $text5);
+
+                $left7 = 140;
+                $top7 = 39;
+                $text7 = "2024";
+                $fpdi->Text($left7, $top7, $text7);
+
+
+                $left4 = 98;
+                $top4 = 39;
+                $text4 = "5-11";
+                $fpdi->Text($left4, $top4, $text4);
+
+                 // Add more text
+                 $left2 = 113;
+                 $top2 = 191.5;
+                 $text2 = "08:00";
+                 $fpdi->Text($left2, $top2, $text2);
+
+
+                 $left3 = 167;
+                 $top3 = 196;
+                 $text3 = "MYT";
+                 $fpdi->Text($left3, $top3, $text3);
+
+
+                 $left3 = 138;
+                 $top3 = 196;
+                 $text3 = "18:00";
+                 $fpdi->Text($left3, $top3, $text3);
+
+                 // Add more text
+                 $left2 = 113;
+                 $top2 = 196;
+                 $text2 = "08:00";
+                 $fpdi->Text($left2, $top2, $text2);
+
+
+                 $left3 = 138;
+                 $top3 = 191.5;
+                 $text3 = "18:00";
+                 $fpdi->Text($left3, $top3, $text3);
+
+                 $left3 = 167;
+                 $top3 = 191.5;
+                 $text3 = "MYT";
+                 $fpdi->Text($left3, $top3, $text3);
+
+
+                 $left4 = 98;
+                 $top4 = 186;
+                 $text4 = "5-11";
+                 $fpdi->Text($left4, $top4, $text4);
+
+                 $left5 = 116;
+                 $top5 = 186;
+                 $text5 = "14";
+                 $fpdi->Text($left5, $top5, $text5);
+
+
+                 $left7 = 140;
+                 $top7 = 186;
+                 $text7 = "2024";
+                 $fpdi->Text($left7, $top7, $text7);
+
+
+
+                 $left6 = 100;
+                 $top6 = 212;
+                 $text6 = $user->alamat;
+                 $fpdi->Text($left6, $top6, $text6);
+
+                 $left6 = 100;
+                 $top6 = 206;
+                 $text6 = $user->tps;
+                 $fpdi->Text($left6, $top6, $text6);
+
+
+                $fpdi->SetFont("Times", "B", 12);
+                $left8 = 73;
+                $top8 = 29.5;
+                $text8 = "/";
+                $fpdi->Text($left8, $top8, $text8);
+
+                $left8 = 73;
+                $top8 = 177;
+                $text8 = "/";
+                $fpdi->Text($left8, $top8, $text8);
+
+                $fpdi->SetFont("Times", "", 7);
+                $left = 52;
+                $top = 28.5;
+                $text = $user->nama_lengkap; // Use the specific attribute of the user model
+                $fpdi->Text($left, $top, $text);
+
+                $left8 = 52;
+                 $top8 = 176;
+                 $text8 = $user->nama_lengkap;
+                 $fpdi->Text($left8, $top8, $text8);
+
+
+                $left6 = 125;
+                $top6 = 39;
+                $text6 = "FEBRUARI ";
+                $fpdi->Text($left6, $top6, $text6);
+
+
+
+                $left6 = 125;
+                $top6 = 186;
+                $text6 = "FEBRUARI ";
+                $fpdi->Text($left6, $top6, $text6);
+
+
+                $left8 = 137.5;
+                $top8 = 176;
+                $text8 = $user->nomor_paspor;
+                $fpdi->Text($left8, $top8, $text8);
+
+                $left8 = 137.5;
+                $top8 = 28.5;
+                $text8 = $user->nomor_paspor;
+                $fpdi->Text($left8, $top8, $text8);
+            }
+
+
+
+
+
+
+
+
+
+            $uniqueOutputPath = $outputFilePath . '_' . $text . '.pdf';
             $fpdi->Output($uniqueOutputPath, 'F');
         }
 
-        // Combine all pages into a single PDF
-        $this->mergePDFPages($outputFilePath, $uniqueIdentifier, $count);
-
-        // Return a response with the merged PDF file
-        return response()->file($outputFilePath);
-    }
-
-    private function mergePDFPages($outputFilePath, $uniqueIdentifier, $count)
-    {
-        $pdf = new Fpdi;
-
-        for ($i = 1; $i <= $count; $i++) {
-            $pagePath = $outputFilePath . '_' . $uniqueIdentifier . '_page_' . $i . '.pdf';
-            $pdf->setSourceFile($pagePath);
-            $template = $pdf->importPage(1);
-            $size = $pdf->getTemplateSize($template);
-            $pdf->AddPage($size['orientation'], array($size['width'], $size['height']));
-            $pdf->useTemplate($template);
-        }
-
-        // Save the final merged PDF
-        $pdf->Output($outputFilePath, 'F');
-
-        // Clean up temporary page files
-        for ($i = 1; $i <= $count; $i++) {
-            $pagePath = $outputFilePath . '_' . $uniqueIdentifier . '_page_' . $i . '.pdf';
-            unlink($pagePath);
-        }
+        return response()->file($uniqueOutputPath);
     }
 }
-

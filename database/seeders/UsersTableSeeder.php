@@ -27,6 +27,14 @@ class UsersTableSeeder extends Seeder
             'desa_kelurahan' => 'Johor Bahru',
             'created_at' => now(), // You may need to adjust this based on your requirements
             'updated_at' => now(),
+
+
         ]);
+
+        DB::table('users')->insert([
+
+
+        ]);
+
     }
 }
