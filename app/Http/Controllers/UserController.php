@@ -19,7 +19,7 @@ class UserController extends Controller
 
         // Search for a user with either NIK or Passport Number
         $user = User::where('nik', $query)
-                    ->orWhere('nomor_paspor', $query)
+                    ->orWhere('nomor_passpor', $query)
                     ->first();
 
         if ($user) {

@@ -84,10 +84,10 @@ class PDFController extends Controller
                 $text6 = $user->alamat;
                 $fpdi->Text($left6, $top6, $text6);
 
-                $left6 = 100;
-                $top6 = 59;
-                $text6 = $user->tps;
-                $fpdi->Text($left6, $top6, $text6);
+                // $left6 = 100;
+                // $top6 = 59;
+                // $text6 = $user->tps;
+                // $fpdi->Text($left6, $top6, $text6);
 
 
                 // Add user information to the PDF
@@ -98,9 +98,17 @@ class PDFController extends Controller
                 $text6 = $user->alamat;
                 $fpdi->Text($left6, $top6, $text6);
 
-                $left6 = 100;
+                $left6 = 105;
                 $top6 = 59;
-                $text6 = $user->tps;
+                if ($user->metode_pemilihan_id == 1) {
+                    $text6 = "TPS" . $user->metode_pemilihan;
+                } else {
+                    $text6 = $user->metode_pemilihan;
+                }
+
+
+                $fpdi->Text($left6, $top6, $text6);
+
                 $fpdi->Text($left6, $top6, $text6);
 
 
@@ -171,8 +179,15 @@ class PDFController extends Controller
 
                 $left6 = 100;
                 $top6 = 206;
-                $text6 = $user->tps;
+
+                if ($user->metode_pemilihan_id == 1) {
+                    $text6 = "TPS" . $user->metode_pemilihan;
+                } else {
+                    $text6 = $user->metode_pemilihan;
+                }
+
                 $fpdi->Text($left6, $top6, $text6);
+
 
                 $fpdi->SetFont("Times", "B", 12);
                 $left8 = 77.5;
@@ -283,7 +298,11 @@ class PDFController extends Controller
 
                 $left6 = 100;
                 $top6 = 59;
-                $text6 = $user->tps;
+                if ($user->metode_pemilihan_id == 1) {
+                    $text6 = "TPS" . $user->metode_pemilihan;
+                } else {
+                    $text6 = $user->metode_pemilihan;
+                }
                 $fpdi->Text($left6, $top6, $text6);
 
                 $left7 = 140;
@@ -353,7 +372,11 @@ class PDFController extends Controller
 
                 $left6 = 100;
                 $top6 = 206;
-                $text6 = $user->tps;
+                if ($user->metode_pemilihan_id == 1) {
+                    $text6 = "TPS" . $user->metode_pemilihan;
+                } else {
+                    $text6 = $user->metode_pemilihan;
+                }
                 $fpdi->Text($left6, $top6, $text6);
 
 

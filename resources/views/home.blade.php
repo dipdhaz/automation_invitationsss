@@ -9,8 +9,6 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-
-
     <style>
         body {
             background-image: url('{{ asset('images/bg.png') }}');
@@ -24,7 +22,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 89vh;
+            min-height: 100vh;
+            overflow: auto;
         }
 
         .container {
@@ -53,14 +52,14 @@
         }
 
         .search-bar {
-            width: 650px;
+            width: 650px; /* Set the width for the normal screen size */
+            max-width: 90%; /* Maximum width to maintain responsiveness */
             height: 35px;
-            padding: 10px 40px 10px 40px;
-            /* Increased padding on the left to accommodate the button */
+            padding: 10px;
             border: none;
             border-radius: 10px;
             font-size: 16px;
-            background-size: 20px;
+            background-size: cover; /* Updated background size */
             background-position: 5% 50%;
             background-repeat: no-repeat;
             text-align: center;
@@ -75,18 +74,23 @@
             cursor: pointer;
             position: absolute;
             left: 10px;
-            /* Adjust as needed */
+        }
+
+        .container {
+            font-size: 33px;
         }
 
         @media screen and (max-width: 600px) {
-            .search-bar {
-                width: 70%;
-                /* Adjusted for smaller screens */
+            body {
+                background-size: cover;
             }
 
-            .search-button {
-                left: 1vw;
-                /* Adjusted for smaller screens */
+            .container {
+                font-size: 18px;
+            }
+
+            .search-bar {
+                width: 90%;
             }
         }
 
@@ -128,12 +132,27 @@
                 text: '{{ session('error') }}',
             });
         @endif
+
+        // Check for internet connectivity
+        function checkInternetConnection() {
+            if (navigator.onLine) {
+                // The device is online
+            } else {
+                // The device is offline, show a SweetAlert notification
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No Internet Connection',
+                    text: 'Please check your internet connection and try again.',
+                });
+            }
+        }
+
+        // Call the function initially and add an event listener for future changes
+        checkInternetConnection();
+        window.addEventListener('online', checkInternetConnection);
+        window.addEventListener('offline', checkInternetConnection);
     });
 </script>
-
-
-
-
 </body>
 
 </html>
