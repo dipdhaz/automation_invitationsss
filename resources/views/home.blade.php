@@ -9,6 +9,7 @@
     <title>Undangan PPLNJB </title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('path/to/your/icomoon/style.css') }}">
+    <link rel="icon" type="image" href="{{ asset('images/1.png') }}">
 
 
     <style>
